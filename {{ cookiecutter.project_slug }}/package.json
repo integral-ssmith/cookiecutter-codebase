@@ -1,15 +1,6 @@
 {
-  // project name
   "name": "{{ cookiecutter.project_slug }}",
-
-  // private or public repository
-{%- if cookiecutter.private -%}
-  "private": true,
-{%- else -%}
-  "private": false,
-{% endif %}
-
-  // release branch name
+  {%- if cookiecutter.private -%}"private": true{%- else -%}"private": false{% endif %},
   "release": {
     "branches": ["{{ cookiecutter.default_branch }}"]
   }

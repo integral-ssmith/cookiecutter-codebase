@@ -1,0 +1,12 @@
+# can create automatically with pycharm if conda installed, otherwise run the following in the anaconda prompt in the
+# appropriate directory
+# > conda env create --file environment.yml
+name: "cookiecutter-codebase"
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  # base python
+  - python=3.11.0
+  # cookiecutter for templating
+  - cookiecutter=2.1.1

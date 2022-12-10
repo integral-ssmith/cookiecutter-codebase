@@ -1,0 +1,36 @@
+# can create automatically with pycharm if conda installed, otherwise run the following in the anaconda prompt in the
+# appropriate directory
+# > conda env create --file environment.yml
+name: "{{ cookiecutter.project_slug }}"
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  # base python
+  - python
+  # basic data handling
+  - numpy
+  - pandas
+  # pandas read/write extenstions
+  - openpyxl
+  - pytables
+  # code & commit formatting
+  - black
+  - blacken-docs
+  - flake8
+  - isort
+  - pre-commit
+  - pyupgrade
+  # code testing
+  - pytest
+  # plotly plotting
+{%- if cookiecutter.include_plotly -%}
+  - plotly{% endif %}
+  - pip:
+    # code & commit formatting
+    - conventional-pre-commit
+    # plotly plotting
+{%- if cookiecutter.include_plotly -%}
+    - kaleido{% endif %}
+
+# TODO post cookiecutter hook to freeze library versions

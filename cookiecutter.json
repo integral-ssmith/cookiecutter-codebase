@@ -1,7 +1,9 @@
 {
-    "project_name": "My New Project",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-    "project_short_description": "A description of my new project.",
-    "use_pytest": "n",
-    "use_black": "n"
+    "project_name": "Python Codebase Boilerplate",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "project_short_description": "A starting codebase for maintainable python codebases.",
+    "default_branch": "main",
+    "private": true,
+    "freeze_versions": true,
+    "include_plotly": true
 }

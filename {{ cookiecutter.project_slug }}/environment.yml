@@ -23,14 +23,14 @@ dependencies:
   - pyupgrade
   # code testing
   - pytest
-  {%- if cookiecutter.include_plotly -%}
+  {% if cookiecutter.include_plotly -%}
   # plotly plotting
-  - plotly{% endif %}
+  - plotly{%- endif %}
   - pip:
     # code & commit formatting
     - conventional-pre-commit
-    {%- if cookiecutter.include_plotly -%}
+    {% if cookiecutter.include_plotly -%}
     # plotly plotting
-    - kaleido{% endif %}
+    - kaleido{%- endif %}
 
 # TODO post cookiecutter hook to freeze library versions

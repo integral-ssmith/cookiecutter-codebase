@@ -1,7 +1,7 @@
 {
   "name": "{{ cookiecutter.project_slug }}",
-  {%- if cookiecutter.private -%}
-  "private": true{%- else -%}"private": false{% endif %},
+  {% if cookiecutter.private -%}"private": true,
+  {%- else -%}"private": false,{%- endif %}
   "release": {
     "branches": ["{{ cookiecutter.default_branch }}"]
   }

@@ -10,3 +10,6 @@ dependencies:
   - python=3.11.0
   # cookiecutter for templating
   - cookiecutter=2.1.1
+  # documentation
+  - sphinx
+  - sphinx_rtd_theme

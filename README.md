@@ -1,10 +1,10 @@
 # Instructions
-Install miniconda and open anaconda prompt. Create a conda environment with cookiecutter:
-> conda create --name <ENVIRONMENT_NAME_HERE>
+Install minimamba and open miniforge prompt. Create a mamba environment with cookiecutter:
+> mamba create --name <ENVIRONMENT_NAME_HERE>
 > 
-> conda active <ENVIRONMENT_NAME_HERE>
+> mamba active <ENVIRONMENT_NAME_HERE>
 > 
-> conda install cookiecutter
+> mamba install cookiecutter
 
 Change the directory to the folder path where you would like to create the project
 > cd <FULL_FILE_PATH_HERE>

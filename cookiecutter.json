@@ -5,5 +5,8 @@
     "default_branch": "main",
     "private": true,
     "freeze_versions": true,
+    "include_geospatial": false,
+    "include_pandas": true,
+    "include_polars": false,
     "include_plotly": true
 }

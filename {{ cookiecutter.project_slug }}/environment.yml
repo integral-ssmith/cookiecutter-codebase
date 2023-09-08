@@ -1,5 +1,5 @@
-# can create automatically with pycharm if conda installed, otherwise run the following in the anaconda prompt in the
-# appropriate directory
+# can create automatically with pycharm if mamba installed, otherwise run the following
+# in the miniforge prompt in the appropriate directory
 # > conda env create --file environment.yml
 name: "{{ cookiecutter.project_slug }}"
 channels:
@@ -8,29 +8,53 @@ channels:
 dependencies:
   # base python
   - python
+  # io
+  - dill
+  - pyyaml
   # basic data handling
   - numpy
-  - pandas
-  # pandas read/write extenstions
+  {% if cookiecutter.include_pandas -%}
   - openpyxl
-  - pytables
+  - pandas
+  - pyarrow
+  - pytables{%- endif %}
+  { % if cookiecutter.include_polars -% }
+  - polars{%- endif %}
+  # geospatial
+  { % if cookiecutter.include_geospatial -% }
+  - geopandas{%- endif %}
+  # plotly plotting
+  { % if cookiecutter.include_plotly -% }
+  - plotly{%- endif %}
+  # useful utilities
+  - tqdm
   # code & commit formatting
   - black
   - blacken-docs
-  - flake8
-  - isort
+  - ruff
   - pre-commit
-  - pyupgrade
+  # documentation
+  - sphinx
   # code testing
   - pytest
-  {% if cookiecutter.include_plotly -%}
-  # plotly plotting
-  - plotly{%- endif %}
+  # pip only packages
   - pip:
+    # geospatial
+    { % if cookiecutter.include_geospatial -% }
+    - geovoronoi
+    - rasterio
+    - rasterstats{%- endif %}
+    # plotly plotting
+    {% if cookiecutter.include_plotly -%}
+    - kaleido{%- endif %}
     # code & commit formatting
     - conventional-pre-commit
-    {% if cookiecutter.include_plotly -%}
-    # plotly plotting
-    - kaleido{%- endif %}
 
+# TODO kaleido version based on windows vs other
+# TODO other common libraries to include, some using the optional booleans
+#   - graph libraries: networkx, rustworkx
+#   - specialized data: awkward
+#   - speed ups: numba, cudatoolkit, dask, ray, modin
+#   - engineering: thermo
+#   - coding: attrs
 # TODO post cookiecutter hook to freeze library versions
